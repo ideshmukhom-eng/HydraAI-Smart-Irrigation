@@ -6,14 +6,14 @@ import time
 import plotly.graph_objects as go
 from tensorflow.keras.models import load_model
 
-# ---------------- PAGE CONFIG ----------------
+#PAGE CONFIG
 st.set_page_config(
     page_title="HydraAI | Smart Irrigation",
     page_icon="💧",
     layout="wide"
 )
 
-# ---------------- LIGHT UI CSS ----------------
+#LIGHT UI CSS 
 st.markdown("""
 <style>
 html, body, .stApp {
@@ -52,7 +52,7 @@ h1, h2, h3 {
 </style>
 """, unsafe_allow_html=True)
 
-# ---------------- LOAD MODEL ----------------
+#LOAD MODEL
 @st.cache_resource
 def load_assets():
     if not os.path.exists("water_requirement_model.h5"):
@@ -63,12 +63,12 @@ def load_assets():
 
 model, scaler = load_assets()
 
-# ---------------- TABS ----------------
+#TABS
 tab_home, tab_predict, tab_about = st.tabs(
     ["🏠 Home", "🔮 Smart Prediction", "📈 System Analytics"]
 )
 
-# ---------------- HOME ----------------
+#HOME 
 with tab_home:
     col_l, col_r = st.columns([2, 1])
 
@@ -92,7 +92,7 @@ with tab_home:
             width=220
         )
 
-# ---------------- PREDICTION ----------------
+#PREDICTION
 with tab_predict:
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     st.subheader("Environmental Parameters")
@@ -167,7 +167,7 @@ with tab_predict:
 
     st.markdown('</div>', unsafe_allow_html=True)
 
-# ---------------- ANALYTICS ----------------
+#ANALYTICS
 with tab_about:
     st.subheader("Live Input Distribution")
 
@@ -192,3 +192,4 @@ with tab_about:
     )
 
     st.plotly_chart(fig, use_container_width=True)
+
