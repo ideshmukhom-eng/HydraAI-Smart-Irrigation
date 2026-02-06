@@ -24,4 +24,4 @@ HydraAI is an AI-powered smart irrigation system that predicts optimal water req
 
 ---
 
-## 📂 Project Structure
+
